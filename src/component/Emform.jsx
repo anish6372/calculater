@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import { Button, TextField, Grid, Stack } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { setLoanDetails } from '../features/loan/loanSlice';
 
-const Emiform = () => {
-  const dispatch = useDispatch();
+const Emform = () => {
+    const dispatch = useDispatch();
   const [principal, setPrincipal] = useState('');
   const [rate, setRate] = useState('');
   const [term, setTerm] = useState('');
@@ -99,7 +100,8 @@ const Emiform = () => {
         Calculate
       </Button>
     </Stack>
-  );
-};
 
-export default Emiform;
+  )
+}
+
+export default Emform

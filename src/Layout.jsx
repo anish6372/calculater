@@ -17,7 +17,8 @@ import {
   import ResultDisplay from './component/ResultDisplay';
   import CurrencySelector from './component/CurrencySelector';
   import AmortizationTable from './component/AmortizationTable';
-  import Emiform from "./component/Emiform"
+import Emform from './component/Emform';
+
  
   
   function HomePage() {
@@ -26,7 +27,8 @@ import {
         <Typography variant="h4" gutterBottom>
           Loan Calculator Dashboard
         </Typography>
-        <Emiform />
+        <Emform/>
+
         <Divider sx={{ my: 3 }} />
         <ResultDisplay />
         <CurrencySelector />
