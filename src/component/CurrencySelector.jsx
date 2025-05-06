@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import {
   FormControl,
   InputLabel,
@@ -16,10 +17,10 @@ const CurrencySelector = () => {
   useEffect(() => {
     const fetchCurrencies = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           'https://v6.exchangerate-api.com/v6/423812d87e71e35b16fd87b0/latest/USD'
         );
-        const data = await response.json();
+        const data = response.data;
         if (data?.conversion_rates) {
           setCurrencies(Object.keys(data.conversion_rates));
         }
@@ -27,7 +28,7 @@ const CurrencySelector = () => {
         console.error('Error fetching currency data:', error);
       }
     };
-
+  
     fetchCurrencies();
   }, []);
 
