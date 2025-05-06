@@ -17,7 +17,8 @@ import {
   import ResultDisplay from './component/ResultDisplay';
   import CurrencySelector from './component/CurrencySelector';
   import AmortizationTable from './component/AmortizationTable';
-  import Emiform from './component/Emiform';
+  import Emiform from "./component/Emiform"
+ 
   
   function HomePage() {
     return (
