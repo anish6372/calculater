@@ -18,6 +18,7 @@ import {
   import CurrencySelector from './component/CurrencySelector';
   import AmortizationTable from './component/AmortizationTable';
 import Emform from './component/Emform';
+import { NavLink } from 'react-router-dom';
 
  
   
@@ -51,32 +52,22 @@ import Emform from './component/Emform';
   
     const drawer = (
       <Box sx={{ display: 'flex' }}>
-{navLinks.map(({ label, path }) => (
-  <Button
-  key={label}
-  onClick={() => navigate(path)}
-  sx={{
-    ...(label === 'HOME'
-      ? {
-          backgroundColor: '#4dabf5 !important' , 
-          color: '#fff',
-          borderRadius: '8px',
-          paddingX: 4,
-          paddingY: 1,
-          fontWeight: 'bold',
-          '&:hover': {
-            backgroundColor: '#2196f3',
-          },
-        }
-      : {
-          color: 'white', 
-        }),
-  }}
->
-  {label}
-</Button>
-
-))}
+ {navLinks.map(({ label, path }) => (
+        <NavLink
+          key={label}
+          to={path}
+          style={({ isActive }) => ({
+            textDecoration: 'none',
+            color: isActive ? '#fff' : 'white',
+            backgroundColor: isActive ? '#1E88E5' : 'transparent',
+            borderRadius: '8px',
+            padding: '8px 16px',
+            
+          })}
+        >
+          {label}
+        </NavLink>
+      ))}
 
 
 
@@ -102,8 +93,21 @@ import Emform from './component/Emform';
             ) : (
               <Box sx={{ display: 'flex', gap: 2 }}>
                 {navLinks.map(({ label, path }) => (
-                  <Button key={label} color="inherit" onClick={() => navigate(path)}>{label}</Button>
-                ))}
+                <NavLink
+                  key={label}
+                  to={path}
+                  style={({ isActive }) => ({
+                    textDecoration: 'none',
+                    color: isActive ? '#fff' : 'inherit',
+                    backgroundColor: isActive ? '#1E88E5' : 'transparent',
+                    borderRadius: '8px',
+                    padding: '8px 16px',
+                    
+                  })}
+                >
+                  {label}
+                </NavLink>
+              ))}
                 <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
               </Box>
             )}
