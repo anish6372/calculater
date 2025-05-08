@@ -51,31 +51,42 @@ import { NavLink } from 'react-router-dom';
     ];
   
     const drawer = (
-      <Box sx={{ display: 'flex' }}>
- {navLinks.map(({ label, path }) => (
-        <NavLink
-          key={label}
-          to={path}
-          style={({ isActive }) => ({
-            textDecoration: 'none',
-            color: isActive ? '#fff' : 'white',
-            backgroundColor: isActive ? '#1E88E5' : 'transparent',
-            borderRadius: '8px',
-            padding: '8px 16px',
-            
-          })}
-        >
-          {label}
-        </NavLink>
-      ))}
-
-
-
-      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} sx={{ ml: 5 }} />
-    </Box>
+      <Box
+        sx={{
+          width: 250,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          gap: 2,
+          p: 2,
+          bgcolor: darkMode ? '#1f1f1f' : 'primary.main',
+          height: '100%',
+        }}
+      >
+        {navLinks.map(({ label, path }) => (
+          <NavLink
+            key={label}
+            to={path}
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              color: isActive ? '#fff' : 'white',
+              backgroundColor: isActive ? '#1E88E5' : 'transparent',
+              borderRadius: '8px',
+              padding: '8px 16px',
+              width: '100%',
+            })}
+            onClick={() => setDrawerOpen(false)} 
+          >
+            {label}
+          </NavLink>
+        ))}
     
-    
+        <Box sx={{ mt: 2 }}>
+          <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+        </Box>
+      </Box>
     );
+    
   
     return (
       <>
